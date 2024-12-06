@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200843617348",
+    "project_id": "chatapptute-b3d5d",
+    "storage_bucket": "chatapptute-b3d5d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200843617348:android:477a4b6b06d56036384811",
+        "android_client_info": {
+          "package_name": "com.example.flutter_mini_chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATvW699O_S3E_439_F58ucxkKwZaQK-5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
