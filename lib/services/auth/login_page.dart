@@ -13,12 +13,17 @@ class LoginPage extends StatelessWidget {
   void login(BuildContext context) async {
     final authService = AuthService();
     try {
-      await authService.signInWithEmailPassword(_emailController.text, _passwordController.text);
-    }
-    catch(e){
-      showDialog(context: context, builder: (context) => AlertDialog(
-        title: Text(e.toString()),
-      ));
+      await authService.signInWithEmailPassword(
+          _emailController.text, _passwordController.text);
+    } catch (e) {
+      if (context.mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
     }
   }
 
@@ -68,17 +73,20 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center, 
-              children: [
-              Text("Not a member?", style: TextStyle(color: Theme.of(context).colorScheme.primary),),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                "Not a member?",
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
               GestureDetector(
                 onTap: () {
                   onTap();
                 },
                 child: Text(
                   "Register now!",
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.primary),
                 ),
               ),
             ])

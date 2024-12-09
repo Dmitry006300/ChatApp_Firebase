@@ -18,22 +18,26 @@ class RegisterPage extends StatelessWidget {
         auth.signUpWithEmailPassword(
             _emailController.text, _passwordController.text);
       } catch (e) {
+        if (context.mounted) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(
+                e.toString(),
+              ),
+            ),
+          );
+        }
+      }
+    } else {
+      if (context.mounted) {
         showDialog(
           context: context,
-          builder: (context) => AlertDialog(
-            title: Text(
-              e.toString(),
-            ),
+          builder: (context) => const AlertDialog(
+            title: Text("Passwords don't match!"),
           ),
         );
       }
-    } else {
-      showDialog(
-        context: context,
-        builder: (context) =>  const AlertDialog(
-          title: Text("Passwords don't match!"),
-        ),
-      );
     }
   }
 
